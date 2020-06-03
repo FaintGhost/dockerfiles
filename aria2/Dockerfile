@@ -16,7 +16,7 @@ RUN apk update \
 	&& apk del wget \
 	&& apk add --update darkhttpd
 
-COPY /aria2/files/* /files/
+COPY files/* /files/
 
 RUN chmod +x /files/*.sh
 
