@@ -2,7 +2,7 @@ FROM lsiobase/alpine:3.12
 
 LABEL maintainer="FaintGhost"
 
-ENV WEBUI_VERSION=master
+ENV WEBUI_VERSION=v1.6.1-update1
 
 RUN apk add --no-cache \
     curl \
