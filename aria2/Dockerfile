@@ -1,7 +1,7 @@
 FROM alpine:edge
 LABEL maintainer="zhang.yaowei@live.com"
 
-ENV ARIANG_VERSION 1.1.7
+ENV ARIANG_VERSION 1.2.1
 
 RUN apk update \
     && apk add --no-cache --update bash \
