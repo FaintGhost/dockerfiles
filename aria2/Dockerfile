@@ -4,19 +4,19 @@ LABEL maintainer="zhang.yaowei@live.com"
 ENV ARIANG_VERSION 1.2.1
 
 RUN apk update \
-    && apk add --no-cache --update bash \
+	&& apk add --no-cache --update bash \
 	&& mkdir -p /config \
 	&& mkdir -p /files \
 	&& mkdir -p /downloads \
-    && apk add --no-cache --update aria2 \
-    && mkdir -p /aria2ng \
-    && cd /aria2ng \
+	&& apk add --no-cache --update aria2 \
+	&& mkdir -p /aria2ng \
+	&& cd /aria2ng \
 	&& apk add --no-cache --update wget \
 	&& wget -N --no-check-certificate https://github.com/mayswind/AriaNg/releases/download/${ARIANG_VERSION}/AriaNg-${ARIANG_VERSION}.zip && unzip AriaNg-${ARIANG_VERSION}.zip && rm -rf AriaNg-${ARIANG_VERSION}.zip \
 	&& apk del wget \
 	&& apk add --update darkhttpd
 
-COPY files/* /files/
+COPY ./files/* /files/
 
 RUN chmod +x /files/*.sh
 
