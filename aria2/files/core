@@ -13,7 +13,7 @@
 TASK_GID=$1
 FILE_NUM=$2
 FILE_PATH=$3
-ARIA2_CONF_DIR="$(dirname $0)"
+ARIA2_CONF_DIR="/config"
 ARIA2_CONF="${ARIA2_CONF_DIR}/aria2.conf"
 ARIA2_SESSION="${ARIA2_CONF_DIR}/aria2.session"
 SCRIPT_CONF="${ARIA2_CONF_DIR}/script.conf"
@@ -95,7 +95,7 @@ RPC_TASK_INFO() {
     else
         RPC_PAYLOAD='{"jsonrpc":"2.0","method":"aria2.tellStatus","id":"P3TERX","params":["'${TASK_GID}'"]}'
     fi
-    curl "${RPC_ADDRESS}" -fsSd "${RPC_PAYLOAD}" || curl "https://${RPC_ADDRESS}" -kfsSd "${RPC_PAYLOAD}"
+    curl --http0.9 "${RPC_ADDRESS}" -fsSd "${RPC_PAYLOAD}" || curl "https://${RPC_ADDRESS}" -kfsSd "${RPC_PAYLOAD}"
 }
 
 GET_TASK_INFO() {
