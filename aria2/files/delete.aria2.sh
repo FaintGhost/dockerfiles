@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
-#=====================================================
+#=================================================================
 # https://github.com/P3TERX/aria2.conf
-# File name：delete.sh
-# Description: Delete files after Aria2 download error
+# File name：delete.aria2.sh
+# Description: Delete .aria2 file after Aria2 download is complete
 # Lisence: MIT
 # Version: 2.0
 # Author: P3TERX
 # Blog: https://p3terx.com
-#=====================================================
+#=================================================================
 
 DOWNLOAD_PATH='/downloads'
 
@@ -18,13 +18,12 @@ LIGHT_GREEN_FONT_PREFIX="\033[1;32m"
 FONT_COLOR_SUFFIX="\033[0m"
 INFO="[${LIGHT_GREEN_FONT_PREFIX}INFO${FONT_COLOR_SUFFIX}]"
 
-echo -e "$(date +"%m/%d %H:%M:%S") ${INFO} Download error or stop, start deleting files..."
+echo -e "$(date +"%m/%d %H:%M:%S") ${INFO} Delete .aria2 file ..."
 
 if [ $2 -eq 0 ]; then
     exit 0
 elif [ -e "${FILE_PATH}.aria2" ]; then
-    rm -vf "${FILE_PATH}.aria2" "${FILE_PATH}"
+    rm -vf "${FILE_PATH}.aria2"
 elif [ -e "${TOP_PATH}.aria2" ]; then
-    rm -vrf "${TOP_PATH}.aria2" "${TOP_PATH}"
+    rm -vf "${TOP_PATH}.aria2"
 fi
-find "${DOWNLOAD_PATH}" ! -path "${DOWNLOAD_PATH}" -depth -type d -empty -exec rm -vrf {} \;
