@@ -1,4 +1,4 @@
-FROM alpine:3.14
+FROM alpine:edge
 LABEL maintainer="zhang.yaowei@live.com"
 
 ENV ARIANG_VERSION 1.2.2
