@@ -47,3 +47,53 @@ steps:
     when:
       event:
         - push
+
+---
+kind: pipeline
+type: docker
+name: amd64
+
+platform:
+  arch: amd64
+  os: linux
+
+steps:
+  - name: publish_subconverter
+    image: plugins/docker:latest
+    settings:
+      auto_tag: true
+      auto_tag_suffix: amd64
+      dockerfile: subconverter/Dockerfile
+      repo: faintghost/subconverter
+      username:
+        from_secret: DOCKER_USERNAME
+      password:
+        from_secret: DOCKER_PASSWORD
+    when:
+      event:
+        - push
+
+---
+kind: pipeline
+type: docker
+name: arm64
+
+platform:
+  arch: arm64
+  os: linux
+
+steps:
+  - name: publish_subconverter
+    image: plugins/docker:latest
+    settings:
+      auto_tag: true
+      auto_tag_suffix: arm64
+      dockerfile: subconverter/Dockerfile
+      repo: faintghost/subconverter
+      username:
+        from_secret: DOCKER_USERNAME
+      password:
+        from_secret: DOCKER_PASSWORD
+    when:
+      event:
+        - push
