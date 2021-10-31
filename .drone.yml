@@ -8,7 +8,7 @@ platform:
   os: linux
 
 steps:
-  - name: publish_aria2
+  - name: publish_aria2_amd64
     image: plugins/docker:latest
     settings:
       auto_tag: true
@@ -33,7 +33,7 @@ platform:
   os: linux
 
 steps:
-  - name: publish_aria2
+  - name: publish_aria2_arm64
     image: plugins/docker:latest
     settings:
       auto_tag: true
@@ -58,7 +58,7 @@ platform:
   os: linux
 
 steps:
-  - name: publish_subconverter
+  - name: publish_subconverter_amd64
     image: plugins/docker:latest
     settings:
       auto_tag: true
@@ -83,7 +83,7 @@ platform:
   os: linux
 
 steps:
-  - name: publish_subconverter
+  - name: publish_subconverter_arm64
     image: plugins/docker:latest
     settings:
       auto_tag: true
